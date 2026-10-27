@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A simple, responsive to-do list app.">
+  <title>Focus List</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="todo-card" aria-labelledby="page-title">
+      <header class="app-header">
+        <div>
+          <p class="eyebrow"><span class="eyebrow-dot"></span>Daily planner</p>
+          <h1 id="page-title">Focus List</h1>
+          <p class="subtitle">Small steps make big progress.</p>
+        </div>
+        <div class="header-actions">
+          <span class="date" id="current-date"></span>
+          <button class="theme-button" id="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false">☾</button>
+        </div>
+      </header>
+
+      <form class="task-form" id="task-form">
+        <label class="sr-only" for="task-input">New task</label>
+        <input id="task-input" type="text" placeholder="What needs to be done?" maxlength="120" autocomplete="off" required>
+        <button type="submit" class="add-button"><span>+</span> Add task</button>
+      </form>
+
+      <div class="list-toolbar">
+        <div>
+          <p class="task-summary" id="task-summary">0 tasks left</p>
+          <div class="progress-track" aria-hidden="true"><span class="progress-bar" id="progress-bar"></span></div>
+        </div>
+        <div class="filters" role="group" aria-label="Filter tasks">
+          <button class="filter-button active" type="button" data-filter="all">All</button>
+          <button class="filter-button" type="button" data-filter="active">Active</button>
+          <button class="filter-button" type="button" data-filter="completed">Completed</button>
+        </div>
+      </div>
+
+      <ul class="task-list" id="task-list" aria-live="polite"></ul>
+
+      <div class="list-footer">
+        <span><strong id="completed-summary">0 completed</strong> <span class="footer-note">· Keep going!</span></span>
+        <button type="button" class="clear-button" id="clear-completed">Clear completed</button>
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
